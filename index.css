@@ -1,0 +1,192 @@
+@import 'tailwindcss';
+
+/* ── Dark mode driven by a class on <html> ─────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design tokens ─────────────────────────────────────────────────── */
+
+/*
+ * `line` is the single foreground colour every border, divider and muted
+ * text tint is derived from. It is deliberately NOT `currentColor`:
+ * currentColor compounds when an element both fades its text and draws a
+ * border, so `border-current/12` on a `text-current/45` element lands at
+ * ~5% and disappears. A flipped variable keeps every tint predictable.
+ */
+:root {
+  --ui-line: #0a0a0a;
+}
+
+:root:where(.dark) {
+  --ui-line: #fafaf9;
+}
+
+@theme inline {
+  --color-line: var(--ui-line);
+}
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --color-ink: #0a0a0a;
+  --color-paper: #fafaf9;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-fade-up: fade-up 0.7s var(--ease-out-expo) both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root:where(.dark) {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* clears the sticky header when jumping to an anchor */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :where(.dark) body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  /* Visible, on-brand focus ring for keyboard users only */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  :where(.dark) ::selection {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  /* Respect the OS "reduce motion" setting */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ── Utilities ─────────────────────────────────────────────────────── */
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
+}
+
+@utility vertical-text {
+  writing-mode: vertical-rl;
+}
+
+/* Fine-grained grid, used as a background texture.
+   Cell size is a variable so it can be tightened on small screens,
+   where a 72px cell leaves only three or four lines across the width. */
+@utility bg-grid {
+  --grid-cell: 72px;
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: var(--grid-cell) var(--grid-cell);
+  background-position: center top;
+}
+
+/* Vertical fade so a background texture never hard-cuts at the section edge */
+@utility mask-fade-y {
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+/* Edge-to-edge fade so the marquee never hard-cuts */
+@utility mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+@layer components {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, currentColor 20%, transparent);
+    border-radius: 999px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, currentColor 40%, transparent);
+  }
+
+  /* Animated underline used on inline links */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+}

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Izzatillayev Javohir — Front-End Developer (React / Next.js)</title>
+    <meta
+      name="description"
+      content="Izzatillayev Javohir is a front-end developer in Tashkent building production React and Next.js applications — admin and CRM dashboards, and client-facing products used by 10,000+ people."
+    />
+    <meta name="author" content="Izzatillayev Javohir" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://javohirdev.org.uz/" />
+
+    <link rel="alternate" hreflang="en" href="https://javohirdev.org.uz/?lang=en" />
+    <link rel="alternate" hreflang="uz" href="https://javohirdev.org.uz/?lang=uz" />
+    <link rel="alternate" hreflang="ru" href="https://javohirdev.org.uz/?lang=ru" />
+    <link rel="alternate" hreflang="x-default" href="https://javohirdev.org.uz/" />
+
+    <!-- Icons & PWA -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="msapplication-TileColor" content="#0a0a0a" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="apple-mobile-web-app-title" content="Javohir I." />
+
+    <!--
+      Open Graph. The share card is a 1200x630 landscape image, not the square
+      avatar: Telegram, LinkedIn and Slack all crop to roughly 1.91:1, and a
+      square source gets rendered as a small thumbnail instead of a wide card.
+    -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://javohirdev.org.uz/" />
+    <meta property="og:site_name" content="Izzatillayev Javohir" />
+    <meta property="og:title" content="Izzatillayev Javohir — Front-End Developer (React / Next.js)" />
+    <meta
+      property="og:description"
+      content="Front-end developer in Tashkent. 10+ production platforms with React and Next.js — clinic, travel, fintech and e-commerce, used by 50,000+ people."
+    />
+    <meta property="og:image" content="https://javohirdev.org.uz/og.png" />
+    <meta property="og:image:secure_url" content="https://javohirdev.org.uz/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <!-- Declaring the dimensions lets a client reserve the card before the image lands -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Izzatillayev Javohir — Front-End Developer, React / Next.js, Tashkent"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="uz_UZ" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="profile:first_name" content="Javohir" />
+    <meta property="profile:last_name" content="Izzatillayev" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Izzatillayev Javohir — Front-End Developer" />
+    <meta
+      name="twitter:description"
+      content="React / Next.js front-end developer in Tashkent. 10+ production platforms, used by 50,000+ people."
+    />
+    <meta name="twitter:image" content="https://javohirdev.org.uz/og.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Izzatillayev Javohir — Front-End Developer, React / Next.js, Tashkent"
+    />
+
+    <!-- Fonts: preconnect early, load without blocking render -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    <!-- Apply the stored theme before first paint so there is no flash -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          var theme = stored === 'light' || stored === 'dark' ? stored : prefersLight ? 'light' : 'dark';
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+          document.documentElement.style.colorScheme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0a0a' : '#fafaf9');
+        } catch (e) {}
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://javohirdev.org.uz/#person",
+            "name": "Izzatillayev Javohir",
+            "url": "https://javohirdev.org.uz/",
+            "image": "https://javohirdev.org.uz/my_avatar.jpg",
+            "jobTitle": "Front-End & Mobile Developer",
+            "email": "mailto:markpomidorchik@gmail.com",
+            "telephone": "+998930602818",
+            "description": "Front-end developer building production React and Next.js applications — admin and CRM dashboards, and client-facing products used by 10,000+ people.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Zangiota",
+              "addressRegion": "Tashkent Region",
+              "addressCountry": "UZ"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Freelance",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Tashkent",
+                "addressCountry": "UZ"
+              }
+            },
+            "alumniOf": [
+              { "@type": "EducationalOrganization", "name": "Najot Ta'lim" },
+              { "@type": "EducationalOrganization", "name": "Geeks" },
+              { "@type": "EducationalOrganization", "name": "My School" }
+            ],
+            "knowsLanguage": [
+              { "@type": "Language", "name": "Uzbek" },
+              { "@type": "Language", "name": "Russian" },
+              { "@type": "Language", "name": "English" }
+            ],
+            "knowsAbout": [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "JavaScript",
+              "Tailwind CSS",
+              "Redux Toolkit",
+              "GraphQL",
+              "WebSocket",
+              "NX Monorepo",
+              "Micro-frontend architecture",
+              "Front-end performance",
+              "Web accessibility"
+            ],
+            "sameAs": [
+              "https://t.me/baxtiyorovich_292",
+              "https://github.com/Baxtiyorovich04"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://javohirdev.org.uz/#website",
+            "url": "https://javohirdev.org.uz/",
+            "name": "Izzatillayev Javohir — Portfolio",
+            "inLanguage": ["en", "uz", "ru"],
+            "about": { "@id": "https://javohirdev.org.uz/#person" },
+            "publisher": { "@id": "https://javohirdev.org.uz/#person" }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: system-ui, sans-serif">
+        <h1>Izzatillayev Javohir — Front-End Developer</h1>
+        <p>
+          React / Next.js developer based in Tashkent, Uzbekistan. This portfolio needs JavaScript
+          enabled. You can reach me at
+          <a href="mailto:markpomidorchik@gmail.com">markpomidorchik@gmail.com</a> or
+          <a href="https://t.me/baxtiyorovich_292">Telegram</a>.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
