@@ -151,6 +151,8 @@ export interface TranslationSchema {
     heading: string;
     body: string;
     emailCta: string;
+    email: string;
+    phone: string;
     location: string;
     responseTime: string;
   };
@@ -158,6 +160,9 @@ export interface TranslationSchema {
     connect: string;
     menu: string;
     close: string;
+    primaryNav: string;
+    language: string;
+    mobileNav: string;
     downloadResume: string;
     backToTop: string;
     skipToContent: string;

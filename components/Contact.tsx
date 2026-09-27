@@ -18,12 +18,12 @@ const Contact: React.FC = () => {
   const githubName = SITE.github.split('/').filter(Boolean).pop() ?? '';
 
   const channels = [
-    { href: `mailto:${SITE.email}`, Icon: Mail, label: 'Email', value: SITE.email, external: false },
+    { href: `mailto:${SITE.email}`, Icon: Mail, label: t.contact.email, value: SITE.email, external: false },
     { href: SITE.telegram, Icon: TelegramIcon, label: 'Telegram', value: `@${telegramName}`, external: true },
     ...(SITE.github
       ? [{ href: SITE.github, Icon: Github, label: 'GitHub', value: githubName, external: true }]
       : []),
-    { href: `tel:${SITE.phone}`, Icon: Phone, label: 'Phone', value: SITE.phoneDisplay, external: false },
+    { href: `tel:${SITE.phone}`, Icon: Phone, label: t.contact.phone, value: SITE.phoneDisplay, external: false },
   ];
 
   return (

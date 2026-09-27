@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             ) : null}
           </a>
 
-          <nav aria-label="Primary" className="hidden lg:block">
+          <nav aria-label={t.common.primaryNav} className="hidden lg:block">
             <ul className="flex items-center gap-1">
               {NAV_ITEMS.filter((item) => item.id !== 'home').map((item) => {
                 const isActive = activeSection === item.id;
@@ -100,7 +100,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           <div className="flex items-center gap-2 md:gap-3">
             <div
               role="group"
-              aria-label="Language"
+              aria-label={t.common.language}
               className="hidden items-center gap-0.5 rounded-full border border-line/12 p-0.5 sm:flex"
             >
               {LANGUAGES.map((lang) => (
@@ -199,7 +199,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               </button>
             </div>
 
-            <nav aria-label="Mobile" className="px-5 pt-6 md:px-8">
+            <nav aria-label={t.common.mobileNav} className="px-5 pt-6 md:px-8">
               <ul className="space-y-1">
                 {NAV_ITEMS.map((item, i) => (
                   <motion.li

@@ -5,7 +5,7 @@ import Section from './ui/Section';
 import Reveal from './ui/Reveal';
 
 const Skills: React.FC = () => {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
 
   return (
     <Section
@@ -24,7 +24,7 @@ const Skills: React.FC = () => {
       </Reveal>
 
       <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
-        {SKILLS.map((group, index) => (
+        {SKILLS[language].map((group, index) => (
           <Reveal key={group.category} delay={Math.min(index, 5) * 0.04}>
             <div className="border-t border-line/10 pt-4">
               <h3 className="font-mono text-[10px] tracking-[0.3em] text-line/35 uppercase">
